@@ -6,7 +6,7 @@ import './App.css'
 
 // import all comonents
 import Username from './components/Username'
-import Reginster from './components/Reginster'
+import Reginster from './components/Register'
 import Password from './components/Password'
 import Reset from './components/Reset'
 import Profile from './components/Profile'
