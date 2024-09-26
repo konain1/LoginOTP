@@ -12,6 +12,7 @@ import Reset from './components/Reset'
 import Profile from './components/Profile'
 import Recovery from './components/Recovery'
 import PagenotFound from './components/PagenotFound'
+import Test from './components/Test'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -46,6 +47,11 @@ function App() {
     {
       path:"/recovery",
       element:<Recovery></Recovery>
+    },
+    {
+
+      path:"/test",
+      element:<Test></Test>
     }
   ])
 

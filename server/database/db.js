@@ -1,22 +1,21 @@
 import mongoose from "mongoose";
-import { MongoMemoryServer } from "mongodb-memory-server";
 
 async function connect() {
-    // Create a new instance of MongoMemoryServer
-    const mongoServer = await MongoMemoryServer.create(); // Correct usage
+    try {
+        // Enable strict query mode in Mongoose (ensures deprecated queries are not used)
+        mongoose.set('strictQuery', true);
 
-    // Get the URI to connect to the in-memory MongoDB instance
-    const uri = mongoServer.getUri();
+        // Connect to MongoDB Atlas using the connection string
+        const db = await mongoose.connect('mongodb+srv://konain7:Kaunain99@cluster0.rmyvhx6.mongodb.net/otp', {
+           
+        });
 
-    // Enable strict query mode in Mongoose
-    mongoose.set('strictQuery', true);
-
-    // Connect to the in-memory MongoDB
-    const db = await mongoose.connect(uri);
-
-    console.log('Connected to in-memory MongoDB:', db.connection.name);
-
-    return db;
+        console.log('Connected to MongoDB:', db.connection.name);
+        return db;
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
+        throw error;
+    }
 }
 
 export default connect;
