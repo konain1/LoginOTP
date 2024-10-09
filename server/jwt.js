@@ -11,7 +11,7 @@ export function generateJWT(payload) {
 export async function verifyJWT(req,res,next){
         const token = req.headers.authorization.split(' ')[1];
 
-        if(!token) return res.status(401).json({msg:'unAuthorize'})
+        if(!token) return res.status(401).json({msg:'un-Authorize'})
 
        
     const decoded = jwt.verify(token,process.env.SECRET || 'secret')

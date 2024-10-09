@@ -114,7 +114,7 @@ route.get('/generateOtp', localVariables,verifyJWT, async (req, res) => {
 
     if(user){
 
-        sendmail(user.email,'verification ',`verification code ${localOpt} `)
+        sendmail(user.email,'verification ',`verification code is ${localOpt} `)
     }
     
     res.send({ msg:"you will recieve an email"});
